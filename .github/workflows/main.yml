@@ -13,5 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1 # 拷贝代码
-      - uses: actions/setup-node@v1 # 安装nodejs
-      - run: node -v
+      - run: |
+          node -v
+          npm run test
