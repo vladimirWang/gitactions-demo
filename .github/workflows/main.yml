@@ -4,20 +4,14 @@ name: MYCI
 on:
   push:
     branches:
-    - master
+      - master
     paths:
-    - src/* # src下的任何文件变动
+      - src/* # src下的任何文件变动
     # schedule:
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1 # 拷贝代码
-    - uses: actions/setup-node@v1 # 安装nodejs
-    - run:
-      npm install
-      npm run build -- if-present
-      npm test
-  # job2:
-  #   needs: job1
-  
+      - uses: actions/checkout@v1 # 拷贝代码
+      - uses: actions/setup-node@v1 # 安装nodejs
+      - run: node -v
