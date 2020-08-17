@@ -12,7 +12,12 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1 # 拷贝代码
-      - run: |
-          node -v
-          npm run test
+      # 部署到阿里云
+      - name: Deploy to Aliyun
+        uses: easingthemes/ssh-deploy@v2.1.1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          REMOTE_HOST: "47.100.174.82"
+          REMOTE_USER: "root"
+          SOURCE: "dist"
+          TARGET: "/root/kkb/client"
